@@ -1,13 +1,12 @@
+// src/App.js
 import React from "react";
 import HomePage from "./pages/HomePage";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <HomePage />
-      {/* Optional: Add React Router if you want separate pages */}
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+    <HomePage />
+  </div>
+);
 
 export default App;

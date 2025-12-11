@@ -107,24 +107,24 @@
 }
 
 /* --------------------------------------------------
-   Buttons
+   Buttons (booking etc.)
 -------------------------------------------------- */
 .training-card button,
 .booking-card button {
   margin-top: 10px;
   padding: 10px 20px;
-  background-color: #3b82f6;
+  background-color: #16a34a;
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 999px;
   font-size: 14px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .training-card button:hover,
 .booking-card button:hover {
-  background-color: #2563eb;
+  background-color: #15803d;
 }
 
 .training-card button:disabled,
@@ -160,7 +160,7 @@
 }
 
 /* --------------------------------------------------
-   Cancel Booking Button (Top-Right)
+   Cancel Booking Button (Top-Right) – old global
 -------------------------------------------------- */
 .cancel-btn {
   position: fixed;
@@ -228,7 +228,7 @@
 }
 
 /* --------------------------------------------------
-   Responsive Adjustments
+   Responsive Adjustments (old)
 -------------------------------------------------- */
 @media (max-width: 600px) {
   .welcome-card {
@@ -245,4 +245,434 @@
   .booking-card h3 {
     font-size: 18px;
   }
+}
+
+/* --------------------------------------------------
+   Landing layout + navbar
+-------------------------------------------------- */
+.landing-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5fbff 0%, #f9fdf7 100%);
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #f5fbff;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  font-weight: 700;
+  font-size: 24px;
+  display: inline-flex;
+}
+
+.navbar-logo-black {
+  color: #111827;
+}
+
+.navbar-logo-green {
+  color: #16a34a;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 18px;
+}
+
+.nav-link {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: #4b5563;
+  cursor: pointer;
+}
+
+.nav-link.active {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------
+   Hero
+-------------------------------------------------- */
+.hero {
+  max-width: 1200px;
+  margin: 10px auto 40px;
+  padding: 40px 24px 60px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-left {
+  max-width: 560px;
+}
+
+.hero-kicker {
+  font-size: 14px;
+  color: #10b981;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-size: 36px;
+  line-height: 1.2;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.highlight {
+  color: #16a34a;
+}
+
+.hero-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 22px;
+}
+
+.hero-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-inputs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hero-inputs input {
+  flex: 1 1 180px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.primary-btn {
+  align-self: flex-start;
+  padding: 10px 26px;
+  border-radius: 999px;
+  border: none;
+  background-color: #16a34a;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.primary-btn:hover {
+  background-color: #15803d;
+}
+
+.hero-user-info {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+/* Hero right */
+.hero-right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.25);
+}
+
+.hero-stats-card {
+  position: absolute;
+  top: 18px;
+  left: -10px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 10px 16px;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.18);
+  text-align: center;
+}
+
+.hero-stat-number {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.hero-stat-label {
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* --------------------------------------------------
+   Courses section
+-------------------------------------------------- */
+.courses-section {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  padding: 0 24px 40px;
+}
+
+.courses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.courses-header h2 {
+  font-size: 22px;
+  color: #111827;
+}
+
+/* right side: Cancel Course + Search */
+.courses-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cancel-course-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #f97373;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancel-course-btn:hover {
+  background-color: #fecaca;
+}
+
+.courses-search {
+  max-width: 260px;
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  font-size: 13px;
+}
+
+.courses-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-chip {
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background-color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  color: #4b5563;
+}
+
+.filter-chip.active {
+  background-color: #16a34a;
+  color: #fff;
+  border-color: #16a34a;
+}
+
+
+.cancel-course-btn {
+  white-space: nowrap;            /* keep text on one line */
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  color: #ef4444;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;           /* icon + text same row */
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.cancel-course-btn::before {
+  content: "✕";
+  font-size: 12px;
+}
+
+.cancel-course-btn:hover {
+  border-color: #fecaca;
+  background-color: #fef2f2;
+}
+
+
+/* --------------------------------------------------
+   Course card layout with thumbnail
+-------------------------------------------------- */
+.course-card {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  gap: 24px;
+}
+
+.course-thumb {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+/* --------------------------------------------------
+   Responsive (hero + navbar)
+-------------------------------------------------- */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .hero-right {
+    order: -1;
+  }
+
+  .navbar {
+    padding-inline: 16px;
+  }
+}
+
+/*Popup CSS*/
+
+.booking-success-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+}
+
+.booking-success-card {
+  background: #ffffff;
+  max-width: 420px;
+  width: 90%;
+  padding: 24px 20px;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.25);
+  text-align: left;
+}
+
+.booking-success-card h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #16a34a;
+}
+
+.booking-success-card p {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 18px;
+}
+
+.booking-success-card button {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  background-color: #16a34a;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/*Contact Navbar Design*/
+.contact-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+}
+
+.contact-modal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px 22px 18px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.25);
+}
+
+.contact-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.contact-modal-header h3 {
+  font-size: 20px;
+  color: #111827;
+}
+
+.contact-modal-close {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+/* Contact content reused from earlier style */
+.contact-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #16a34a;
+  margin-bottom: 14px;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.contact-label {
+  width: 80px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.contact-value {
+  font-size: 13px;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.contact-value:hover {
+  text-decoration: underline;
 }
