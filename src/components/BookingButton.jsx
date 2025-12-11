@@ -1,38 +1,36 @@
+// src/components/BookingButton.jsx
 import React, { useState } from "react";
-import { bookTraining, cancelBooking } from "../api/bookingApi";
+import { bookTraining } from "../api/bookingApi";
 
-const BookingButton = ({ training, userId, isBooked, onBookingUpdate }) => {
+const BookingButton = ({ training, userId, onBooked }) => {
   const [loading, setLoading] = useState(false);
 
   const handleBook = async () => {
+    if (!userId) {
+      alert("User not ready yet. Please refresh the page and try again.");
+      return;
+    }
+
     setLoading(true);
     try {
-      await bookTraining(training.id, userId);
-      onBookingUpdate();
+      const res = await bookTraining(training.id, userId);
+      // res = { message, booking, remainingSeats, referenceNumber }
+      if (onBooked) onBooked(res);
     } catch (err) {
-      alert(err.response?.data?.message || "Error booking training");
+      console.error("Booking error:", err?.response?.data || err);
+      alert(err?.response?.data?.message || "Error booking training");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
-  const handleCancel = async () => {
-    setLoading(true);
-    try {
-      await cancelBooking(training.id, userId);
-      onBookingUpdate();
-    } catch (err) {
-      alert(err.response?.data?.message || "Error canceling booking");
-    }
-    setLoading(false);
-  };
+  const disabled = loading || training.availableSeats === 0;
+  const label =
+    training.availableSeats === 0 ? "Full" : loading ? "Booking..." : "Book";
 
-  return isBooked ? (
-    <button onClick={handleCancel} disabled={loading}>
-      {loading ? <span className="loader"></span> : "Cancel"}
-    </button>
-  ) : (
-    <button onClick={handleBook} disabled={loading || training.availableSeats === 0}>
-      {loading ? <span className="loader"></span> : training.availableSeats === 0 ? "Full" : "Book"}
+  return (
+    <button onClick={handleBook} disabled={disabled}>
+      {loading ? <span className="loader"></span> : label}
     </button>
   );
 };

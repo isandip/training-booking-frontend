@@ -1,22 +1,21 @@
+// src/components/TrainingList.jsx
 import React from "react";
 import TrainingCard from "./TrainingCard";
 import "../App.css";
 
-const TrainingList = ({ trainings, userId, bookings, onBookingUpdate }) => {
+const TrainingList = ({ trainings, user, bookings, onBookingUpdate, onBooked }) => {
+  const userId = user?.id;
+
   return (
     <div className="training-list-grid">
-      {trainings.map((training) => {
-        const userBooking = bookings.find(b => b.trainingId === training.id);
-        return (
-          <TrainingCard
-            key={training.id}
-            training={training}
-            userId={userId}
-            userBooking={userBooking}
-            onBookingUpdate={onBookingUpdate}
-          />
-        );
-      })}
+      {trainings.map((training) => (
+        <TrainingCard
+          key={training.id}
+          training={training}
+          userId={userId}
+          onBooked={onBooked}
+        />
+      ))}
     </div>
   );
 };
